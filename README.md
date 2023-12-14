@@ -27,9 +27,7 @@ hth
 
 1. What is the alogrithm's big 0 notation for your solution?
 
-From ChatGPT:
-
-O(m^2)
+O(n^2)
 
 2. What are some options for looping that you have done for code?
 
