@@ -4,7 +4,8 @@
   "description": "coding exercises for boyd",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "letters": "node letters.js",
+    "numbers": "node numbers.js"
   },
   "repository": {
     "type": "git",
