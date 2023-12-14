@@ -29,15 +29,15 @@ From ChatGPT:
 
 "The big O complexity of your code can be analyzed as follows:
 
-Generating the charMap: This involves iterating through the given string and creating a map with a key for each unique character. The time complexity of this part is O(n), where 'n' is the length of the input string.
+Creating the uniqueCharacters array: This part involves iterating through the givenString to create an array of unique characters. The time complexity for this operation is O(n), where 'n' is the length of the givenString.
 
-Generating the permutations for each character: This involves nested loops, and for each character, you generate permutations by iterating through the other characters. Since the inner loops run for a constant number of iterations (3 * 2 = 6 iterations), the overall time complexity for this part is O(m), where 'm' is the number of unique characters in the input string.
+Generating the permutations for each character: The generatePermutations function uses two nested loops to generate permutations, and it runs for each unique character in uniqueCharacters. Since the inner loops run for a constant number of iterations (3 * 2 = 6 iterations), the overall time complexity for this part is O(m), where 'm' is the number of unique characters in uniqueCharacters.
 
-Merging the values from the map into the final array: This involves concatenating the arrays of permutations from the map values. If we assume there are 'm' unique characters, and for each character, there are 'k' permutations (where 'k' is typically small, as it's 6 in this case), the time complexity of this part is O(m * k).
+Concatenating the permutations: The code concatenates the generated permutations into the result array using concat(). The concatenation operation has a time complexity of O(k), where 'k' is the total number of permutations generated.
 
-Overall, the time complexity of your code is dominated by the part that generates the permutations for each character, which is O(m). In most cases, this would be quite efficient, especially if the number of unique characters ('m') is relatively small."
+Overall, the time complexity of your code is dominated by the part that generates permutations for each character, which is O(m), and the concatenation operation, which is O(k). If 'm' and 'k' are relatively small compared to 'n' (the length of the givenString), then the code is reasonably efficient. However, if 'm' and 'k' grow significantly, it could impact the overall performance."
 
-This sounds correct to me. I believe the solution ChatGPT wrote when prompted with just your problem was less efficient.
+This sounds correct to me. I believe the solution ChatGPT wrote when prompted with just your problem was less efficient, O(n^3).
 
 2. What are some options for looping that you have done for code?
 
