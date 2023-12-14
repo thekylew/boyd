@@ -28,26 +28,25 @@ function generatePermutations(character, otherCharacters) {
 //get the string from the args array
 const givenString = args[0];
 
-//make a map with a key for each unique character in the string
-const charMap = new Map();
+console.log(`Given string:`, givenString);
 
-for (const char of givenString) charMap.set(char, []);
+const uniqueCharacters = [];
 
-//iterate through each key and generate permutations
-for (const key of charMap.keys()) {
-  const otherKeys = Array.from(charMap.keys()).filter(
-    (otherKey) => otherKey !== key
-  );
-
-  charMap.set(key, generatePermutations(key, otherKeys));
+//make an array with the unique characters
+for (const char of givenString) {
+  if (!uniqueCharacters.includes(char)) uniqueCharacters.push(char);
 }
 
-//merge the values from the map into the final array
+console.log(`Unique characters:`, uniqueCharacters);
+
 let result = [];
 
-for(const key of charMap.keys()) {
-    result = result.concat(charMap.get(key));
-}
+//iterate through each key and generate permutations
+uniqueCharacters.forEach(char => {
+  const otherCharacters = uniqueCharacters.filter(otherChar => otherChar !== char);
+
+  result = result.concat(generatePermutations(char, otherCharacters));
+});
 
 //log the result
 result.forEach(permutation => console.log(permutation));
