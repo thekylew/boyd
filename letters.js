@@ -13,14 +13,9 @@ if (args.length !== 1) {
 function generatePermutations(character, otherCharacters) {
   const permutations = [];
 
-  for (const char1 of otherCharacters) {
-    for (const char2 of otherCharacters) {
-      if (char1 !== char2) {
-        const permutation = character + char1 + char2;
-        permutations.push(permutation);
-      }
-    }
-  }
+  for (let i = 0; i < otherCharacters.length; i = i + 1) 
+    for (let j = i + 1; j < otherCharacters.length; j = j + 1) 
+        permutations.push(character + otherCharacters[i] + otherCharacters[j]);
 
   return permutations;
 }
@@ -29,6 +24,11 @@ function generatePermutations(character, otherCharacters) {
 const givenString = args[0];
 
 console.log(`Given string:`, givenString);
+
+if (givenString.length < 3) {
+    console.error('String is too short. It needs at least 3 characters.');
+    return;
+}
 
 const uniqueCharacters = [];
 
