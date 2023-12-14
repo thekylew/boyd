@@ -11,14 +11,19 @@ if (args.length !== 1) {
 
 //function to generate 3-letter permutations given a starting character and the other characters
 function generatePermutations(character, otherCharacters) {
-  const permutations = [];
-
-  for (let i = 0; i < otherCharacters.length; i = i + 1) 
-    for (let j = i + 1; j < otherCharacters.length; j = j + 1) 
-        permutations.push(character + otherCharacters[i] + otherCharacters[j]);
-
-  return permutations;
-}
+    const permutations = [];
+  
+    for (const char1 of otherCharacters) {
+      for (const char2 of otherCharacters) {
+        if (char1 !== char2) {
+          const permutation = character + char1 + char2;
+          permutations.push(permutation);
+        }
+      }
+    }
+  
+    return permutations;
+  }
 
 //get the string from the args array
 const givenString = args[0];
