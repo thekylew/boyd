@@ -149,3 +149,20 @@ rtc
 
 ## numbers
 
+Create a method that will take in an array of integers and replace each number in the array with the product of all the numbers in the array except the number at the index itself.
+
+1. What is the alogrithm's big 0 notation for your solution?
+
+O(n)
+
+2. What are some options for looping that you have done for code?
+
+Assuming you mean types of loops, I used
+
+* `Array.map` to convert the input array to numbers and to transform the input array
+* Array destructuring with a concatenation of `Array.slice` operations to get the array with the current number missing
+* `Array.reduce` to do the multiplication operation on the remaining numbers
+
+3. What was the result for [5, 6, 9, 12, 15]?"
+
+[ 9720, 8100, 5400, 4050, 3240 ]
